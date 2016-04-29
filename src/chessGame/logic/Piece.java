@@ -1,8 +1,14 @@
 package chessGame.logic;
 
+import chessGame.logic.Board.Color;
+
 abstract class Piece {
 	
-	public enum Color {WHITE, BLACK}
+	private Color color;
+	
+	public Piece(Color color){
+		this.color=color;
+	};
 	
 	public String toString(){
 		return "";
