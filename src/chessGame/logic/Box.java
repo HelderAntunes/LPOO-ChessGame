@@ -11,5 +11,9 @@ class Box {
 		this.color=color;
 	}
 	
+	public String getChar(){
+		return this.piece.toString();
+	}
+	
 
 }
