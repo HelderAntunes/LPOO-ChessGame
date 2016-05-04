@@ -21,7 +21,7 @@ class Rook extends Piece{
 
 		int x = this.position.getX();
 		int y = this.position.getY();
-
+		
 		// up
 		for(int i = y-1, j = x;i >= 0;i--){
 			if(board[i][j].isEmpty() == false){
@@ -36,7 +36,7 @@ class Rook extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-
+		
 		// down
 		for(int i = y+1, j = x;i < 8;i++){
 			if(board[i][j].isEmpty() == false){
@@ -51,7 +51,7 @@ class Rook extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-
+		
 		// right
 		for(int i = y, j = x+1;j < 8;j++){
 			if(board[i][j].isEmpty() == false){
@@ -66,7 +66,7 @@ class Rook extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-
+		
 		// left
 		for(int i = y, j = x-1;j >= 0;j--){
 			if(board[i][j].isEmpty() == false){
