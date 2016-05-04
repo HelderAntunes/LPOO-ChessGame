@@ -1,12 +1,12 @@
 package chessGame.logic;
 
-public class moveDone {
+class MoveDone {
 	private int sourceX;
 	private int sourceY;
 	private int DestX;
 	private int DestY;
 	
-	public moveDone(int sourceX,int sourceY,int DestX,int DestY){
+	public MoveDone(int sourceX,int sourceY,int DestX,int DestY){
 		this.sourceX=sourceX;
 		this.sourceY=sourceY;
 		this.DestX=DestX;
