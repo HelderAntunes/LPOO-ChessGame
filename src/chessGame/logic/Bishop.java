@@ -21,7 +21,7 @@ class Bishop extends Piece{
 
 		int x = this.position.getX();
 		int y = this.position.getY();
-		
+
 		// up-left
 		for(int i = y-1, j = x-1;i >= 0 && j >= 0;i--, j--){
 			if(board[i][j].isEmpty() == false){
@@ -36,7 +36,7 @@ class Bishop extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-		
+
 		// up-right
 		for(int i = y-1, j = x+1;i >= 0 && j < 8;i--, j++){
 			if(board[i][j].isEmpty() == false){
@@ -51,7 +51,7 @@ class Bishop extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-		
+
 		// down-left
 		for(int i = y+1, j = x-1;i < 8 && j >= 0;i++, j--){
 			if(board[i][j].isEmpty() == false){
@@ -66,7 +66,7 @@ class Bishop extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-		
+
 		// down-right
 		for(int i = y+1, j = x+1;i < 8 && j < 8;i++, j++){
 			if(board[i][j].isEmpty() == false){
@@ -81,7 +81,7 @@ class Bishop extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-		
+
 		return validPositions;
 	}
 

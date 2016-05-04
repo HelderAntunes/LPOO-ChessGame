@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class Queen extends Piece{
 
 	public Queen(Color color){
-		super(color);	
+		super(color);
 	}
 
 	public Queen(Color color, Position position){
@@ -141,7 +141,7 @@ class Queen extends Piece{
 				validPositions.add(new Position(j,i));
 			}
 		}
-		
+
 		return validPositions;
 	}
 
