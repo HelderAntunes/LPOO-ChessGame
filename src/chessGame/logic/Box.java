@@ -17,8 +17,16 @@ class Box {
 		return piece;
 	}
 	
+	void setPiece(Piece newPiece){
+		this.piece = newPiece;
+	}
+	
 	boolean isEmpty(){
 		return piece instanceof NonePiece;
+	}
+	
+	Color getColor(){
+		return color;
 	}
 	
 }

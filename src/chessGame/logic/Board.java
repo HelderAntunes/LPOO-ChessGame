@@ -88,8 +88,19 @@ public class Board {
 		return boardChar;
 	}
 
-	boolean move(int sourceX,int sourceY,int destX,int destY){
-		return true;
+	void move(Position iniPosition, Position endPosition){
+		Piece pieceToMove = board[iniPosition.getY()][iniPosition.getX()].getPiece();
+		removePiece(iniPosition);
+		insertPiece(endPosition, pieceToMove);
+	}
+	
+	void removePiece(Position position){
+		Color color = board[position.getY()][position.getX()].getColor();
+		board[position.getY()][position.getX()].setPiece(new NonePiece(color, position));
+	}
+	
+	void insertPiece(Position position, Piece pieceToInsert){
+		board[position.getY()][position.getX()].setPiece(pieceToInsert);
 	}
 	
 	boolean whiteKingIsInCheck(){
@@ -141,13 +152,12 @@ public class Board {
 			}
 		return null;
 	}
-
-	void removePiece(int sourceX,int sourceY){
-
-	}
 	
 	ArrayList<Position> getPossibleMoves(Position position){
-		return board[position.getY()][position.getX()].getPiece().getPossibleMoves(board);
+		ArrayList<Position> validPositions = board[position.getY()][position.getX()].getPiece().getPossibleMoves(board);
+		
+		
+		return validPositions;
 	}
 
 }
