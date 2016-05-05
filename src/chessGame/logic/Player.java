@@ -2,8 +2,13 @@ package chessGame.logic;
 
 class Player {
 	
-	private String name;
 	private Color color;
 	
-
+	Player(Color color){
+		this.color = color;
+	}
+	
+	Color getColor(){
+		return color;
+	}
 }
