@@ -91,23 +91,35 @@ public class Board {
 	boolean move(int sourceX,int sourceY,int destX,int destY){
 		return true;
 	}
-
-	boolean checkForCheck(){
+	
+	boolean whiteKingIsInCheck(){
 		Position whiteKingPos = findWhiteKing();
+		
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				Piece piece = board[i][j].getPiece();
+				ArrayList<Position> positions = piece.getPossibleMoves(board);
+				for(Position position: positions)
+					if(position.equals(whiteKingPos))
+						return true;
+			}
+		
+		return false;
+	}
+	
+	boolean blackKingIsInCheck(){
 		Position blackKingPos = findBlackKing();
 		
 		for(int i = 0;i < 8;i++)
 			for(int j = 0;j < 8;j++){
-				
 				Piece piece = board[i][j].getPiece();
 				ArrayList<Position> positions = piece.getPossibleMoves(board);
-				
 				for(Position position: positions)
-					if(position.equals(whiteKingPos) || position.equals(blackKingPos))
+					if(position.equals(blackKingPos))
 						return true;
 			}
 		
-		return true;
+		return false;
 	}
 	
 	Position findWhiteKing(){
