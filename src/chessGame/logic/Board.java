@@ -168,5 +168,9 @@ public class Board {
 		
 		return validPositions;
 	}
+	
+	Box getBox(Position position){
+		return board[position.getY()][position.getX()];
+	}
 
 }

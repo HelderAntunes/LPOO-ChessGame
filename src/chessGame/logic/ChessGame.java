@@ -12,6 +12,31 @@ public class ChessGame {
 		return board.getPossibleMoves(position);
 	}
 	
+	/**
+	 * Move a piece in initial position to a new position.
+	 * The function return false when there isn't a piece in initial position, 
+	 * or the move is invalid.
+	 * 
+	 * @param iniPosition initial position
+	 * @param endPosition end position
+	 * @return true if the move was successful , false otherwise.
+	 */
+	public boolean move(Position iniPosition, Position endPosition){
+		
+		if(board.getBox(iniPosition).isEmpty() == true)
+			return false;
+		
+		ArrayList<Position> possibleMoves = getPossibleMoves(iniPosition);
+		for(int i = 0;i < possibleMoves.size();i++){
+			if(possibleMoves.get(i).equals(endPosition)){
+				board.move(iniPosition, endPosition);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public ChessGame(char[][] board){
 		this.board = new Board(board);
 	}
