@@ -93,7 +93,41 @@ public class Board {
 	}
 
 	boolean checkForCheck(){
+		Position whiteKingPos = findWhiteKing();
+		Position blackKingPos = findBlackKing();
+		
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				
+				Piece piece = board[i][j].getPiece();
+				ArrayList<Position> positions = piece.getPossibleMoves(board);
+				
+				for(Position position: positions)
+					if(position.equals(whiteKingPos) || position.equals(blackKingPos))
+						return true;
+			}
+		
 		return true;
+	}
+	
+	Position findWhiteKing(){
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				Piece piece = board[i][j].getPiece();
+				if(piece instanceof King && piece.getColor() == Color.WHITE)
+					return new Position(j,i);
+			}
+		return null;
+	}
+	
+	Position findBlackKing(){
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				Piece piece = board[i][j].getPiece();
+				if(piece instanceof King && piece.getColor() == Color.BLACK)
+					return new Position(j,i);
+			}
+		return null;
 	}
 
 	void removePiece(int sourceX,int sourceY){

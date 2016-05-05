@@ -56,7 +56,6 @@ public class TestQueenMove {
 		assertEquals(true, sucess);
 
 		posibleMoves = game.getPossibleMoves(new Position(3,0));
-		System.out.println(posibleMoves.size());
 		boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
