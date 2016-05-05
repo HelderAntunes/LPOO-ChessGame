@@ -156,6 +156,15 @@ public class Board {
 	ArrayList<Position> getPossibleMoves(Position position){
 		ArrayList<Position> validPositions = board[position.getY()][position.getX()].getPiece().getPossibleMoves(board);
 		
+		for(int i = 0;i < validPositions.size();i++){
+			Position newPosition = validPositions.get(i);
+			Board newBoard = new Board(this.getBoard());
+			newBoard.move(position, newPosition);
+			if(newBoard.blackKingIsInCheck() || newBoard.whiteKingIsInCheck()){
+				validPositions.remove(i);
+				i--;
+			}
+		}
 		
 		return validPositions;
 	}
