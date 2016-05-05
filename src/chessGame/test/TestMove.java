@@ -26,6 +26,27 @@ public class TestMove {
 							{'p', 'p', 'p', 'p', ' ', 'p', 'p', 'p'}, 
 							{'r', 'h', 'b', 'q', 'k', 'b', ' ', 'r'}}; 
 	
+					     
+	static char [][] b3 = {{'R', 'H', 'B', 'Q', 'K', ' ', 'H', 'R'}, // 1
+							{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'}, // 2
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // 3
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // 4
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // 5
+							{' ', ' ', 'B', ' ', ' ', ' ', ' ', ' '},  // 6
+							{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, // 7
+							{'r', 'h', 'b', 'q', 'k', 'b', 'h', 'r'}}; // 8
+	
+	static char [][] b4 = {{'R', 'H', 'B', 'Q', 'K', ' ', 'H', 'R'}, // 1
+							{'P', 'P', 'P', 'P', 'P', ' ', 'P', 'P'}, // 2
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // 3
+							{' ', ' ', ' ', ' ', ' ', 'P', ' ', 'q'}, // 4
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // 5
+							{' ', ' ', 'B', 'p', ' ', ' ', ' ', ' '},  // 6
+							{'p', 'p', 'p', ' ', 'p', 'p', 'p', 'p'}, // 7
+							{'r', 'h', 'b', ' ', 'k', 'b', 'h', 'r'}}; // 8
+	
+	
+	
 	@Test
 	public void testMove() {
 
@@ -59,5 +80,23 @@ public class TestMove {
 				}
 		assertEquals(true, sucess);
 	}
+	
+	@Test
+	public void testMoveThatCausesCheckMate() {
+		ChessGame game = new ChessGame(b3);
+		assertEquals(false, game.move("d7 d6"));
+		assertEquals(false, game.move("d7 d5"));
+	}
+	
+	@Test
+	public void testCheck() {
+		ChessGame game = new ChessGame(b4);
+		assertEquals(true, game.blackIsInCheck());
+		assertEquals(true, game.whiteIsInCheck());
+	}
+	
+	
+	
+	
 
 }

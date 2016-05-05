@@ -49,6 +49,14 @@ public class ChessGame {
 		return false;
 	}
 	
+	public boolean whiteIsInCheck(){
+		return board.whiteKingIsInCheck();
+	}
+	
+	public boolean blackIsInCheck(){
+		return board.blackKingIsInCheck();
+	}
+	
 	/**
 	 * Move a piece in chess notation(example: "f3 f6", move the piece in f3 to f6).
 	 * @param move 
