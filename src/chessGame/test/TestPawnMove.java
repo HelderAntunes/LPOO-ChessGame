@@ -78,7 +78,6 @@ public class TestPawnMove {
 
 
 		posibleMoves = game.getPossibleMoves(new Position(4,5));
-		System.out.println(posibleMoves.size());
 		boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';

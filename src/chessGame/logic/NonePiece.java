@@ -2,11 +2,11 @@ package chessGame.logic;
 
 class NonePiece extends Piece{
 	
-	public NonePiece(Color color){
+	NonePiece(Color color){
 		super(color);
 	}
 	
-	public NonePiece(Color color, Position position){
+	NonePiece(Color color, Position position){
 		super(color, position);
 	}
 	

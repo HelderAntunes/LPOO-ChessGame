@@ -4,20 +4,20 @@ class Box {
 	private Piece piece;
 	private Color color;
 	
-	public Box(Piece piece,Color color){
+	Box(Piece piece,Color color){
 		this.piece=piece;
 		this.color=color;
 	}
 	
-	public String getChar(){
+	String getChar(){
 		return this.piece.toString();
 	}
 	
-	public Piece getPiece(){
+	Piece getPiece(){
 		return piece;
 	}
 	
-	public boolean isEmpty(){
+	boolean isEmpty(){
 		return piece instanceof NonePiece;
 	}
 	

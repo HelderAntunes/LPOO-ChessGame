@@ -3,21 +3,50 @@ package chessGame.logic;
 import java.util.ArrayList;
 
 class Horse extends Piece{
-	
-	public Horse(Color color){
+
+	Horse(Color color){
 		super(color);
 	}
-	
-	public Horse(Color color, Position position){
+
+	Horse(Color color, Position position){
 		super(color, position);	
 	}
-	
+
 	public String toString(){
 		return "H";
 	}
-	
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
+
+		int x = this.position.getX();
+		int y = this.position.getY();
+
+		if(x > 0){
+			if(y >= 2)
+				validPositions.add(new Position(x-1,y-2));
+			else if(y <= 5)
+				validPositions.add(new Position(x-1,y+2));
+		}
+		else if(x > 1){
+			if(y >= 1)
+				validPositions.add(new Position(x-2,y-1));
+			else if(y <= 6)
+				validPositions.add(new Position(x-2,y+1));
+		}
+		else if(x < 7){
+			if(y >= 2)
+				validPositions.add(new Position(x+1,y-2));
+			else if(y <= 5)
+				validPositions.add(new Position(x+1,y+2));
+		}
+		else if(x < 6){
+			if(y >= 1)
+				validPositions.add(new Position(x+2,y-1));
+			else if(y <= 6)
+				validPositions.add(new Position(x+2,y+1));
+		}
+
 		return validPositions;
 	}
 

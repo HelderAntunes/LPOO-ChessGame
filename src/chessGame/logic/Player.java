@@ -1,6 +1,6 @@
 package chessGame.logic;
 
-public class Player {
+class Player {
 	
 	private String name;
 	private Color color;

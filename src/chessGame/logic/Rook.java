@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 class Rook extends Piece{
 
-	public Rook(Color color){
+	Rook(Color color){
 		super(color);
 	}
 
-	public Rook(Color color, Position position){
+	Rook(Color color, Position position){
 		super(color, position);
 	}
 
@@ -16,7 +16,7 @@ class Rook extends Piece{
 		return "R";
 	}
 
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 
 		int x = this.position.getX();

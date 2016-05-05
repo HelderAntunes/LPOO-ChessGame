@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 class King extends Piece{
 	
-	public King(Color color){
+	King(Color color){
 		super(color);
 	}
 	
-	public King(Color color, Position position){
+	King(Color color, Position position){
 		super(color, position);
 	}
 	
@@ -16,7 +16,7 @@ class King extends Piece{
 		return "K";
 	}
 	
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 		return validPositions;
 	}

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 class Pawn extends Piece{
 
-	boolean hasMoved = false;
-
-	public Pawn(Color color){
+	Pawn(Color color){
 		super(color);
 	}
 
-	public Pawn(Color color, Position position){
+	Pawn(Color color, Position position){
 		super(color, position);
 	}
 
@@ -18,7 +16,7 @@ class Pawn extends Piece{
 		return "P";
 	}
 
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 		
 		int x = this.position.getX();

@@ -13,19 +13,19 @@ class MoveDone {
 		this.DestY=DestY;
 	}
 	
-	public int getSourceX(){
+	int getSourceX(){
 		return this.sourceX;
 	}
 	
-	public int getSourceY(){
+	int getSourceY(){
 		return this.sourceY;
 	}
 	
-	public int getDestX(){
+	int getDestX(){
 		return this.DestX;
 	}
 	
-	public int getDestY(){
+	int getDestY(){
 		return this.DestY;
 	}
 	

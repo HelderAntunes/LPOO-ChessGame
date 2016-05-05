@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 class Bishop extends Piece{
 
-	public Bishop(Color color){
+	Bishop(Color color){
 		super(color);
 	}
 
-	public Bishop(Color color, Position position){
+	Bishop(Color color, Position position){
 		super(color, position);
 	}
 
@@ -16,7 +16,7 @@ class Bishop extends Piece{
 		return "B";
 	}
 
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 
 		int x = this.position.getX();

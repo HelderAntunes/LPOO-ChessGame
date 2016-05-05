@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 class Queen extends Piece{
 
-	public Queen(Color color){
+	Queen(Color color){
 		super(color);	
 	}
 
-	public Queen(Color color, Position position){
+	Queen(Color color, Position position){
 		super(color, position);
 	}
 
@@ -16,7 +16,7 @@ class Queen extends Piece{
 		return "Q";
 	}
 
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 
 		int x = this.position.getX();

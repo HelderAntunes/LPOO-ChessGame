@@ -7,11 +7,11 @@ public class Board {
 
 	private Box board[][] = new Box[8][8];
 
-	public Board(char[][] board){
+	Board(char[][] board){
 		initialize(board);
 	}
 	
-	public void initialize(char[][] board){
+	void initialize(char[][] board){
 		for(int i = 0;i < board.length;i++)
 			for(int j = 0;j < board.length;j++){
 				char c = board[i][j];
@@ -73,7 +73,7 @@ public class Board {
 			}
 	}
 	
-	public char[][] getBoard(){
+	char[][] getBoard(){
 		char[][] boardChar = new char[8][8];
 		for(int i = 0;i < 8;i++)
 			for(int j = 0;j < 8;j++){
@@ -88,19 +88,19 @@ public class Board {
 		return boardChar;
 	}
 
-	public boolean move(int sourceX,int sourceY,int destX,int destY){
+	boolean move(int sourceX,int sourceY,int destX,int destY){
 		return true;
 	}
 
-	public boolean checkForCheck(){
+	boolean checkForCheck(){
 		return true;
 	}
 
-	public void removePiece(int sourceX,int sourceY){
+	void removePiece(int sourceX,int sourceY){
 
 	}
 	
-	public ArrayList<Position> getPossibleMoves(Position position){
+	ArrayList<Position> getPossibleMoves(Position position){
 		return board[position.getY()][position.getX()].getPiece().getPossibleMoves(board);
 	}
 

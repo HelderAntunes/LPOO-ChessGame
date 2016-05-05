@@ -7,12 +7,12 @@ class Piece {
 	protected Color color;
 	protected Position position;
 	
-	public Piece(Color color, Position position){
+	Piece(Color color, Position position){
 		this.color = color;
 		this.position = position;
 	};
 	
-	public Piece(Color color){
+	Piece(Color color){
 		this.color = color;
 	}
 	
@@ -20,11 +20,11 @@ class Piece {
 		return " ";
 	}
 	
-	public Color getColor(){
+	Color getColor(){
 		return color;
 	}
 	
-	public ArrayList<Position> getPossibleMoves(Box board[][]){
+	ArrayList<Position> getPossibleMoves(Box board[][]){
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 		return validPositions;
 	}
