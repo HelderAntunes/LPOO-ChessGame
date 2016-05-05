@@ -124,6 +124,8 @@ public class Board {
 		for(int i = 0;i < 8;i++)
 			for(int j = 0;j < 8;j++){
 				Piece piece = board[i][j].getPiece();
+				if(piece.getColor() == Color.BLACK)
+					continue;
 				ArrayList<Position> positions = piece.getPossibleMoves(board);
 				for(Position position: positions)
 					if(position.equals(blackKingPos))
@@ -137,6 +139,8 @@ public class Board {
 		for(int i = 0;i < 8;i++)
 			for(int j = 0;j < 8;j++){
 				Piece piece = board[i][j].getPiece();
+				if(piece.getColor() == Color.WHITE)
+					continue;
 				if(piece instanceof King && piece.getColor() == Color.WHITE)
 					return new Position(j,i);
 			}
@@ -155,12 +159,19 @@ public class Board {
 	
 	ArrayList<Position> getPossibleMoves(Position position){
 		ArrayList<Position> validPositions = board[position.getY()][position.getX()].getPiece().getPossibleMoves(board);
+		Piece piece = board[position.getY()][position.getX()].getPiece();
 		
 		for(int i = 0;i < validPositions.size();i++){
 			Position newPosition = validPositions.get(i);
 			Board newBoard = new Board(this.getBoard());
 			newBoard.move(position, newPosition);
-			if(newBoard.blackKingIsInCheck() || newBoard.whiteKingIsInCheck()){
+			
+			if(newBoard.blackKingIsInCheck() && piece.getColor() == Color.BLACK){
+				validPositions.remove(i);
+				i--;
+			}
+			
+			if(newBoard.whiteKingIsInCheck() && piece.getColor() == Color.WHITE){
 				validPositions.remove(i);
 				i--;
 			}

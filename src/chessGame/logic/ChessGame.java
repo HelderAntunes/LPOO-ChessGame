@@ -21,7 +21,7 @@ public class ChessGame {
 	/**
 	 * Move a piece in initial position to a new position.
 	 * The function return false when there isn't a piece in initial position, 
-	 * the player try move a opponent piece, or the move is invalid
+	 * the player try move a opponent piece, or the move is invalid.
 	 * 
 	 * @param iniPosition initial position
 	 * @param endPosition end position
@@ -47,6 +47,21 @@ public class ChessGame {
 			}
 		
 		return false;
+	}
+	
+	/**
+	 * Move a piece in chess notation(example: "f3 f6", move the piece in f3 to f6).
+	 * @param move 
+	 * @return true if the move was successful, false otherwise
+	 */
+	public boolean move(String move){
+		int iniX = move.charAt(0)-'a';
+		int iniY = move.charAt(1)-'1';
+		int endX = move.charAt(3)-'a';
+		int endY = move.charAt(4)-'1';
+		Position iniPosition = new Position(iniX, iniY);
+		Position endPosition = new Position(endX, endY);
+		return move(iniPosition, endPosition);
 	}
 	
 	public char[][] getBoard(){

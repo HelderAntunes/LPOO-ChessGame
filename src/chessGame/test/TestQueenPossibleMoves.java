@@ -11,39 +11,39 @@ import chessGame.logic.Position;
 
 public class TestQueenPossibleMoves {
 	
-	static char [][] b1 = {{'R', 'H', ' ', 'Q', 'K', 'B', 'H', 'R'},
-							{'P', 'P', 'P', 'P', ' ', 'P', 'P', 'P'},
-							{' ', ' ', ' ', ' ', ' ', 'p', ' ', ' '},
-							{' ', ' ', ' ', 'h', 'q', ' ', ' ', ' '},
-							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-							{' ', ' ', 'B', ' ', 'p', ' ', ' ', ' '},
-							{'p', 'p', 'p', 'p', ' ', 'p', ' ', 'p'},
-							{'r', 'h', 'b', ' ', 'k', 'b', ' ', 'r'}};
+	static char [][] b1 = {{'R', 'H', 'B', 'Q', 'K', 'P', 'H', 'R'}, 
+							{'P', 'P', ' ', 'P', ' ', ' ', 'B', 'P'}, 
+							{' ', ' ', 'P', ' ', 'P', 'P', ' ', ' '}, 
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, 
+							{' ', ' ', ' ', ' ', 'q', ' ', ' ', ' '}, 
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},  
+							{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, 
+							{'r', 'h', 'b', ' ', 'k', 'b', 'h', 'r'}};
 		
-	static char [][] b2 = {{'R', 'H', ' ', 'Q', 'X', 'B', 'H', 'R'},
-							{'P', 'P', 'X', 'P', 'X', 'P', 'P', 'P'},
-							{' ', ' ', ' ', 'X', 'X', 'p', ' ', ' '},
-							{' ', ' ', ' ', 'h', 'q', 'X', 'X', 'X'},
-							{' ', ' ', ' ', 'X', 'X', 'X', ' ', ' '},
-							{' ', ' ', 'X', ' ', 'p', ' ', 'X', ' '},
-							{'p', 'p', 'p', 'p', ' ', 'p', ' ', 'p'},
-							{'r', 'h', 'b', ' ', 'k', 'b', ' ', 'r'}};
+	static char [][] b2 = {{'R', 'H', 'B', 'Q', 'K', 'P', 'H', 'R'}, 
+							{'P', 'P', 'X', 'P', 'X', ' ', 'B', 'P'}, 
+							{' ', 'X', 'P', ' ', 'P', 'P', ' ', ' '}, 
+							{'X', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, 
+							{' ', ' ', ' ', ' ', 'q', ' ', ' ', ' '}, 
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},  
+							{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, 
+							{'r', 'h', 'b', ' ', 'k', 'b', 'h', 'r'}};
 	
-	static char [][] b3 = {{'R', 'H', 'X', 'Q', 'K', 'B', 'H', 'R'},
-							{'P', 'P', 'P', 'P', 'X', 'P', 'P', 'P'},
-							{' ', ' ', ' ', ' ', ' ', 'X', ' ', ' '},
-							{' ', ' ', ' ', 'h', 'q', ' ', ' ', ' '},
-							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-							{' ', ' ', 'B', ' ', 'p', ' ', ' ', ' '},
-							{'p', 'p', 'p', 'p', ' ', 'p', ' ', 'p'},
-							{'r', 'h', 'b', ' ', 'k', 'b', ' ', 'r'}};
+	static char [][] b3 = {{'R', 'H', 'B', 'Q', 'K', 'P', 'H', 'R'}, 
+							{'P', 'P', ' ', 'P', ' ', ' ', 'B', 'X'}, 
+							{' ', ' ', 'X', ' ', 'X', 'P', 'X', ' '}, 
+							{' ', ' ', ' ', 'X', 'X', 'X', ' ', ' '}, 
+							{'X', 'X', 'X', 'X', 'q', 'X', 'X', 'X'}, 
+							{' ', ' ', ' ', 'X', 'X', 'X', ' ', ' '},  
+							{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, 
+							{'r', 'h', 'b', ' ', 'k', 'b', 'h', 'r'}};
 
 	@Test
 	public void testQueen() {
 		boolean sucess = true;
 		ChessGame game = new ChessGame(b1);
 
-		ArrayList<Position> posibleMoves = game.getPossibleMoves(new Position(4,3));
+		ArrayList<Position> posibleMoves = game.getPossibleMoves(new Position(3,0));
 		char[][] boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
@@ -55,7 +55,7 @@ public class TestQueenPossibleMoves {
 				}
 		assertEquals(true, sucess);
 
-		posibleMoves = game.getPossibleMoves(new Position(3,0));
+		posibleMoves = game.getPossibleMoves(new Position(4,4));
 		boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
