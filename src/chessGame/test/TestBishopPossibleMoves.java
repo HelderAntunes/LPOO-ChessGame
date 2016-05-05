@@ -7,7 +7,7 @@ import org.junit.Test;
 import chessGame.logic.ChessGame;
 import chessGame.logic.Position;
 
-public class TestBishopMove {
+public class TestBishopPossibleMoves {
 
 	static char [][] b1 = {{'R', 'H', ' ', 'Q', 'K', 'B', 'H', 'R'},
 			{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},

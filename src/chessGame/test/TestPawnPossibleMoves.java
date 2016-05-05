@@ -9,7 +9,7 @@ import org.junit.Test;
 import chessGame.logic.ChessGame;
 import chessGame.logic.Position;
 
-public class TestPawnMove {
+public class TestPawnPossibleMoves {
 
 	static char [][] b1 = {{'R', 'H', ' ', 'Q', 'K', 'B', 'H', 'R'},
 			{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},

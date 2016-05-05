@@ -9,7 +9,7 @@ import org.junit.Test;
 import chessGame.logic.ChessGame;
 import chessGame.logic.Position;
 
-public class TestRookMove {
+public class TestRookPossibleMoves {
 
 	static char [][] b1 = {{' ', 'H', ' ', 'Q', 'K', 'B', 'H', 'R'},
 			{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
