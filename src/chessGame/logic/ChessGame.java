@@ -9,7 +9,6 @@ public class ChessGame {
 	private Player playerBlack = new Player(Color.BLACK);
 	private boolean isWhiteToPlay = true;
 	
-	
 	public ChessGame(char[][] board){
 		this.board = new Board(board);
 	}
@@ -55,6 +54,14 @@ public class ChessGame {
 	
 	public boolean blackIsInCheck(){
 		return board.blackKingIsInCheck();
+	}
+	
+	public boolean whiteWinsByCheckMate(){
+		return board.whiteWinsByCheckMate();
+	}
+	
+	public boolean blackWinsByCheckMate(){
+		return board.blackWinsByCheckMate();
 	}
 	
 	/**

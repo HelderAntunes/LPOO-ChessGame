@@ -6,7 +6,7 @@ class MoveDone {
 	private int DestX;
 	private int DestY;
 	
-	public MoveDone(int sourceX,int sourceY,int DestX,int DestY){
+	MoveDone(int sourceX,int sourceY,int DestX,int DestY){
 		this.sourceX=sourceX;
 		this.sourceY=sourceY;
 		this.DestX=DestX;
@@ -29,8 +29,4 @@ class MoveDone {
 		return this.DestY;
 	}
 	
-	
-	
-	
-
 }

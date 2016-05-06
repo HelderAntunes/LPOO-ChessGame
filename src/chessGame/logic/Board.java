@@ -3,7 +3,7 @@ package chessGame.logic;
 import java.util.ArrayList;
 
 
-public class Board {
+class Board {
 
 	private Box board[][] = new Box[8][8];
 
@@ -101,6 +101,54 @@ public class Board {
 	
 	void insertPiece(Position position, Piece pieceToInsert){
 		board[position.getY()][position.getX()].setPiece(pieceToInsert);
+	}
+	
+	boolean whiteWinsByCheckMate(){
+		boolean whiteWins = true;
+		ArrayList<Position> positionsValids;
+		Position position = null;
+		Piece piece = null;
+		
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				piece = board[i][j].getPiece();
+				
+				if(!(piece instanceof NonePiece) && piece.getColor() == Color.WHITE){
+					position = new Position(j,i);
+					positionsValids = getPossibleMoves(position);
+					
+					if(positionsValids.size() > 0){
+						whiteWins = false;
+						break;
+					}		
+				}
+			}
+		
+		return whiteWins;
+	}
+	
+	boolean blackWinsByCheckMate(){
+		boolean blackWins = true;
+		ArrayList<Position> positionsValids;
+		Position position = null;
+		Piece piece = null;
+		
+		for(int i = 0;i < 8;i++)
+			for(int j = 0;j < 8;j++){
+				piece = board[i][j].getPiece();
+				
+				if(!(piece instanceof NonePiece) && piece.getColor() == Color.BLACK){
+					position = new Position(j,i);
+					positionsValids = getPossibleMoves(position);
+					
+					if(positionsValids.size() > 0){
+						blackWins = false;
+						break;
+					}		
+				}
+			}
+		
+		return blackWins;
 	}
 	
 	boolean whiteKingIsInCheck(){
