@@ -41,7 +41,7 @@ public class TestBishopPossibleMoves {
 		boolean sucess = true;
 		ChessGame game = new ChessGame(b1);
 		ArrayList<Position> posibleMoves = game.getPossibleMoves(new Position(5,7));
-
+ 
 		char[][] boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';

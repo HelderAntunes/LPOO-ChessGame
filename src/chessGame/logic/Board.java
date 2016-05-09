@@ -113,7 +113,7 @@ class Board {
 			for(int j = 0;j < 8;j++){
 				piece = board[i][j].getPiece();
 				
-				if(!(piece instanceof NonePiece) && piece.getColor() == Color.WHITE){
+				if(!(piece instanceof NonePiece) && piece.getColor() == Color.BLACK){
 					position = new Position(j,i);
 					positionsValids = getPossibleMoves(position);
 					
@@ -137,10 +137,10 @@ class Board {
 			for(int j = 0;j < 8;j++){
 				piece = board[i][j].getPiece();
 				
-				if(!(piece instanceof NonePiece) && piece.getColor() == Color.BLACK){
+				if(!(piece instanceof NonePiece) && piece.getColor() == Color.WHITE){
 					position = new Position(j,i);
 					positionsValids = getPossibleMoves(position);
-					
+			 		
 					if(positionsValids.size() > 0){
 						blackWins = false;
 						break;
