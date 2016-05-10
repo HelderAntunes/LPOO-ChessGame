@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 class Pawn extends Piece{
 
-	Pawn(Color color){
-		super(color);
-	}
-
 	Pawn(Color color, Position position){
 		super(color, position);
 	}

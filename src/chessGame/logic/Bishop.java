@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 class Bishop extends Piece{
 
-	Bishop(Color color){
-		super(color);
-	}
-
 	Bishop(Color color, Position position){
 		super(color, position);
 	}

@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 class Horse extends Piece{
 
-	Horse(Color color){
-		super(color);
-	}
-
 	Horse(Color color, Position position){
 		super(color, position);	
 	}

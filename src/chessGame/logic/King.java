@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 class King extends Piece{
 	
-	King(Color color){
-		super(color);
-	}
-	
 	King(Color color, Position position){
 		super(color, position);
 	}

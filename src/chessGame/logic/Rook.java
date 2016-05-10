@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 class Rook extends Piece{
 
-	Rook(Color color){
-		super(color);
-	}
-
 	Rook(Color color, Position position){
 		super(color, position);
 	}

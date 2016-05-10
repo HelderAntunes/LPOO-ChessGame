@@ -12,10 +12,6 @@ class Piece {
 		this.position = position;
 	};
 	
-	Piece(Color color){
-		this.color = color;
-	}
-	
 	public String toString(){
 		return " ";
 	}
