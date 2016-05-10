@@ -40,33 +40,19 @@ public class TestQueenPossibleMoves {
 
 	@Test
 	public void testQueen() {
-		boolean sucess = true;
 		ChessGame game = new ChessGame(b1);
 
 		ArrayList<Position> posibleMoves = game.getPossibleMoves(new Position(3,0));
 		char[][] boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
-		for(int i = 0;i < 8;i++)
-			for(int j = 0;j < 8;j++)
-				if(boardTest[i][j] != b2[i][j]){
-					sucess = false;
-					break;
-				}
-		assertEquals(true, sucess);
+		assertEquals(true, new UtilitiesForTest().boardEquals(boardTest, b2));
 
 		posibleMoves = game.getPossibleMoves(new Position(4,4));
 		boardTest = game.getBoard();
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
-		for(int i = 0;i < 8;i++)
-			for(int j = 0;j < 8;j++)
-				if(boardTest[i][j] != b3[i][j]){
-					System.out.println(i + " " + j);
-					sucess = false;
-					break;
-				}
-		assertEquals(true, sucess);
+		assertEquals(true, new UtilitiesForTest().boardEquals(boardTest, b3));
 
 	}
 
