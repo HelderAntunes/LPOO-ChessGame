@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class ChessGame {
 	
 	private Board board;
-	private Player playerWhite = new Player(Color.WHITE);
-	private Player playerBlack = new Player(Color.BLACK);
 	private boolean isWhiteToPlay = true;
 	
 	public ChessGame(char[][] board){
