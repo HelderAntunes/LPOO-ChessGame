@@ -28,4 +28,8 @@ class Piece {
 		ArrayList<Position> validPositions = new ArrayList<Position>();
 		return validPositions;
 	}
+	
+	Position getPosition(){
+		return position;
+	}
 }
