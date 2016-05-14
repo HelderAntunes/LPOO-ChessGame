@@ -101,6 +101,7 @@ class Board {
 	
 	void insertPiece(Position position, Piece pieceToInsert){
 		board[position.getY()][position.getX()].setPiece(pieceToInsert);
+		pieceToInsert.setPosition(position);
 	}
 	
 	boolean whiteWinsByCheckMate(){
@@ -226,7 +227,7 @@ class Board {
 		}
 		
 		return validPositions;
-	}
+	} 
 	
 	Box getBox(Position position){
 		return board[position.getY()][position.getX()];

@@ -28,4 +28,8 @@ class Piece {
 	Position getPosition(){
 		return position;
 	}
+	
+	void setPosition(Position position){
+		this.position = position;
+	}
 }

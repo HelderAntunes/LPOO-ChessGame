@@ -2,9 +2,12 @@ package chessGame.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import chessGame.logic.ChessGame;
+import chessGame.logic.Position;
 
 public class TestMove {
 						//   a   b     c   d     e   f    g     h
@@ -45,7 +48,14 @@ public class TestMove {
 							{'p', 'p', 'p', ' ', 'p', 'p', 'p', 'p'}, // 7
 							{'r', 'h', 'b', ' ', 'k', 'b', 'h', 'r'}}; // 8
 	
-	
+	static char [][] b5 = {{'R', 'H', 'B', 'Q', 'K', 'B', ' ', 'R'}, // 1
+							{'P', 'P', 'P', 'P', ' ', 'P', 'P', 'P'}, // 2
+							{' ', ' ', ' ', ' ', ' ', 'H', ' ', ' '}, // 3
+							{' ', ' ', ' ', ' ', 'X', ' ', 'X', ' '}, 
+							{' ', ' ', ' ', 'X', 'p', ' ', ' ', 'X'}, 
+							{' ', ' ', ' ', ' ', ' ', 'h', ' ', ' '},  
+							{'p', 'p', 'p', 'p', ' ', 'p', 'p', 'p'}, 
+							{'r', 'h', 'b', 'q', 'k', 'b', 'X', 'r'}}; 
 	
 	@Test
 	public void testMove() {
@@ -53,22 +63,22 @@ public class TestMove {
 		ChessGame game = new ChessGame(b1);
 		
 		// valid moves
-		assertEquals(true, game.move("e7 e5"));
 		assertEquals(true, game.move("e2 e4"));
+		assertEquals(true, game.move("e7 e5"));
 		
 		// test move in empty box
-		assertEquals(false, game.move("e7 e5"));
 		assertEquals(false, game.move("e2 e4"));
+		assertEquals(false, game.move("e7 e5"));
 		
 		// test move a opponent piece(white try move a black piece)
-		assertEquals(false, game.move("a2 a3"));
-		
-		assertEquals(true, game.move("g8 f6"));
-		
-		// test move a opponent piece(black try move a white piece)
-		assertEquals(false, game.move("b8 c6"));
+		assertEquals(false, game.move("a7 a6"));
 		
 		assertEquals(true, game.move("g1 f3"));
+		
+		// test move a opponent piece(black try move a white piece)
+		assertEquals(false, game.move("b1 c3"));
+		
+		assertEquals(true, game.move("g8 f6"));
 		
 		boolean sucess = true;
 		char[][] boardTest = game.getBoard();
@@ -95,8 +105,23 @@ public class TestMove {
 		assertEquals(true, game.whiteIsInCheck());
 	}
 	
-	
-	
-	
-
+	@Test
+	public void testGame(){
+		ChessGame game = new ChessGame(b1);
+		assertEquals(true, game.move("e2 e4"));
+		assertEquals(true, game.move("e7 e5"));
+		assertEquals(true, game.move("g1 f3"));
+		assertEquals(true, game.move("g8 f6"));
+		ArrayList<Position> possibleMoves = game.getPossibleMoves(new Position(5,5));
+		char [][]boardTest = game.getBoard();
+		for(Position position: possibleMoves)
+			boardTest[position.getY()][position.getX()] = 'X';
+		for(int i = 0;i < 8;i++){
+			for(int j = 0;j < 8;j++){
+				System.out.print(boardTest[i][j] + " ");
+			}
+			System.out.println("");
+		}
+		assertEquals(true, new UtilitiesForTest().boardEquals(boardTest, b5));
+	}
 }

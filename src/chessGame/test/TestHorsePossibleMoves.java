@@ -46,6 +46,24 @@ public class TestHorsePossibleMoves {
 			{' ', ' ', 'X', ' ', 'p', ' ', ' ', ' '},
 			{'p', 'p', 'p', 'p', ' ', 'p', ' ', 'p'},
 			{'r', 'h', 'b', 'q', 'k', 'b', ' ', 'r'}};
+	
+	static char [][] b5 = {{'R', 'H', 'B', 'Q', 'K', 'B', ' ', 'R'},
+						{'P', 'P', 'P', 'P', 'H', 'P', 'P', 'P'},
+						{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+						{' ', ' ', ' ', ' ', 'P', ' ', ' ', ' '},
+						{' ', ' ', ' ', ' ', 'p', ' ', ' ', ' '},
+						{' ', ' ', ' ', ' ', ' ', ' ', ' ', 'h'},
+						{'p', 'p', 'p', 'p', ' ', 'p', 'p', 'p'},
+						{'r', 'h', 'b', 'q', 'k', 'b', ' ', 'r'}};
+	
+	static char [][] b6 = {{'R', 'H', 'B', 'Q', 'K', 'B', ' ', 'R'},
+							{'P', 'P', 'P', 'P', 'H', 'P', 'P', 'P'},
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+							{' ', ' ', ' ', ' ', 'P', ' ', 'X', ' '},
+							{' ', ' ', ' ', ' ', 'p', 'X', ' ', ' '},
+							{' ', ' ', ' ', ' ', ' ', ' ', ' ', 'h'},
+							{'p', 'p', 'p', 'p', ' ', 'p', 'p', 'p'},
+							{'r', 'h', 'b', 'q', 'k', 'b', 'X', 'r'}};
 
 	@Test
 	public void testHorse() {
@@ -68,6 +86,12 @@ public class TestHorsePossibleMoves {
 		for(Position position: posibleMoves)
 			boardTest[position.getY()][position.getX()] = 'X';
 		assertEquals(true, new UtilitiesForTest().boardEquals(boardTest, b4));
+		
+		ChessGame game2 = new ChessGame(b5);
+		posibleMoves = game2.getPossibleMoves(new Position(7,5));
+		boardTest = game2.getBoard();
+		for(Position position: posibleMoves)
+			boardTest[position.getY()][position.getX()] = 'X';
+		assertEquals(true, new UtilitiesForTest().boardEquals(boardTest, b6));
 	}
-
 }

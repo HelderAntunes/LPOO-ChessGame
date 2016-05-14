@@ -69,9 +69,9 @@ public class ChessGame {
 	 */
 	public boolean move(String move){
 		int iniX = move.charAt(0)-'a';
-		int iniY = move.charAt(1)-'1';
+		int iniY = 8-(move.charAt(1)-'1')-1;
 		int endX = move.charAt(3)-'a';
-		int endY = move.charAt(4)-'1';
+		int endY = 8-(move.charAt(4)-'1')-1;
 		Position iniPosition = new Position(iniX, iniY);
 		Position endPosition = new Position(endX, endY);
 		return move(iniPosition, endPosition);
