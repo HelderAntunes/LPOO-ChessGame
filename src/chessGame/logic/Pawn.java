@@ -22,14 +22,14 @@ class Pawn extends Piece{
 		if(this.color == Color.WHITE){
 			if(board[y-1][x].isEmpty() == true){
 				validPositions.add(new Position(x,y-1));
-				if(board[y-2][x].isEmpty() == true && y == 6)
+				if(y == 6 && board[y-2][x].isEmpty() == true)
 					validPositions.add(new Position(x,y-2));
 			}
 		}
 		else if(this.color == Color.BLACK){
 			if(board[y+1][x].isEmpty() == true){
 				validPositions.add(new Position(x,y+1));
-				if(board[y+2][x].isEmpty() == true && y == 1)
+				if(y == 1 && board[y+2][x].isEmpty() == true)
 					validPositions.add(new Position(x,y+2));
 			}
 		}
