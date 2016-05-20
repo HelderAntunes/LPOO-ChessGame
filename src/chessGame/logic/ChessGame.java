@@ -1,4 +1,4 @@
-package chessGame.logic;
+package ChessLogic;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,30 @@ public class ChessGame {
 	public ChessGame(char[][] board){
 		this.board = new Board(board);
 	}
+
+	public ChessGame(){
+		char[][] b = {{'R', 'H', 'B', 'Q', 'K', 'B', 'H', 'R'},
+				{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+				{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+				{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+				{'r', 'h', 'b', 'q', 'k', 'b', 'h', 'r'}};
+		this.board = new Board(b);
+	}
 	
 	public ArrayList<Position> getPossibleMoves(Position position){
-		return board.getPossibleMoves(position);
+        if(board.getBox(position).isEmpty() == true)
+            return new ArrayList<Position>();
+
+        if(isWhiteToPlay == true && board.getBox(position).getPiece().getColor() == Color.BLACK)
+            return new ArrayList<Position>();;
+
+        if(isWhiteToPlay == false && board.getBox(position).getPiece().getColor() == Color.WHITE)
+            return new ArrayList<Position>();
+
+        return board.getPossibleMoves(position);
 	}
 	
 	/**

@@ -23,4 +23,9 @@ public class Position {
 		else
 			return false;
 	}
+	
+	public void setXY(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
 }
