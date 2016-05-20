@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class Rook extends Piece{
 	
-	boolean moved = false;
+	private boolean moved = false;
 
 	Rook(Color color, Position position){
 		super(color, position);
