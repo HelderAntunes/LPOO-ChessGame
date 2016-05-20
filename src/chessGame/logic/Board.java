@@ -92,6 +92,28 @@ class Board {
 		Piece pieceToMove = board[iniPosition.getY()][iniPosition.getX()].getPiece();
 		removePiece(iniPosition);
 		insertPiece(endPosition, pieceToMove);
+		
+		
+		if(pieceToMove instanceof King){
+			
+			// castling
+			if(endPosition.getX() == iniPosition.getX()+2){
+				Position oldRookPosition = new Position(iniPosition.getX()+3, iniPosition.getY());
+				Position newRookPosition = new Position(iniPosition.getX()+1, iniPosition.getY());
+				move(oldRookPosition, newRookPosition);
+			}
+			else if(endPosition.getX() == iniPosition.getX()-2){
+				Position oldRookPosition = new Position(iniPosition.getX()-4, iniPosition.getY());
+				Position newRookPosition = new Position(iniPosition.getX()-1, iniPosition.getY());
+				move(oldRookPosition, newRookPosition);
+			}
+			
+			((King)pieceToMove).setMoved(true);
+		}
+		
+		if(pieceToMove instanceof Rook){
+			((Rook)pieceToMove).setMoved(true);
+		}
 	}
 	
 	void removePiece(Position position){
